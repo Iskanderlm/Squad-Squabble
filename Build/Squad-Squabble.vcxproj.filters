@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SFML">
+      <UniqueIdentifier>{F7C68B7C-E3FD-8C0D-8CEA-72107800090F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples">
+      <UniqueIdentifier>{85DAB273-F19A-2EAA-BAD5-772726557386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\ftp">
+      <UniqueIdentifier>{1E1C126F-8A32-1005-D3A9-9B263FFFE08C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\island">
+      <UniqueIdentifier>{6FEA2904-5B79-B3CD-0498-C7C8F005C473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\joystick">
+      <UniqueIdentifier>{045A438E-F053-6CE0-D9C0-02F1C559D24C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\opengl">
+      <UniqueIdentifier>{79F4EE11-6583-78DB-0EA2-8CD6FA0F8981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\shader">
+      <UniqueIdentifier>{AB76B01A-9705-3AE4-4024-4EDF2C924A8A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\sockets">
+      <UniqueIdentifier>{D0703B81-3CDD-F67B-05D1-8ED971FC18E4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\sound">
+      <UniqueIdentifier>{1D40F27C-89A1-CF8A-120F-163D7E6F064A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\sound_capture">
+      <UniqueIdentifier>{7045EFF8-DC52-1DDF-6539-19CAD145E995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\tennis">
+      <UniqueIdentifier>{C5A1D61C-B130-60E6-5A4F-74E146BD708C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\voip">
+      <UniqueIdentifier>{32505E51-1E34-1FA7-8794-19FA73970929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\vulkan">
+      <UniqueIdentifier>{8554A122-71E3-2AEC-1A02-3FE706703B92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\win32">
+      <UniqueIdentifier>{4732377D-B393-148B-3C01-5B3DA8614B4A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\examples\window">
+      <UniqueIdentifier>{EC531E24-D8E2-A7ED-8101-BCE86D6FB893}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Source\SFML\examples\vulkan\vulkan.h">
+      <Filter>SFML\examples\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\cBattleScene.h" />
+    <ClInclude Include="..\Source\cButton.h" />
+    <ClInclude Include="..\Source\cClickable.h" />
+    <ClInclude Include="..\Source\cEvent.h" />
+    <ClInclude Include="..\Source\cHPBar.h" />
+    <ClInclude Include="..\Source\cHoverNotifier.h" />
+    <ClInclude Include="..\Source\cInput.h" />
+    <ClInclude Include="..\Source\cLabel.h" />
+    <ClInclude Include="..\Source\cPokemonFactory.h" />
+    <ClInclude Include="..\Source\cRenderManager.h" />
+    <ClInclude Include="..\Source\cResourceManager.h" />
+    <ClInclude Include="..\Source\cScaledElement.h" />
+    <ClInclude Include="..\Source\cScene.h" />
+    <ClInclude Include="..\Source\cTextureRect.h" />
+    <ClInclude Include="..\Source\cUIRect.h" />
+    <ClInclude Include="..\Source\cUtil.h" />
+    <ClInclude Include="..\Source\sMove.h" />
+    <ClInclude Include="..\Source\sPokemon.h" />
+    <ClInclude Include="..\Source\sTrainer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\Main.cpp" />
+    <ClCompile Include="..\Source\SFML\examples\ftp\Ftp.cpp">
+      <Filter>SFML\examples\ftp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\island\Island.cpp">
+      <Filter>SFML\examples\island</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\joystick\Joystick.cpp">
+      <Filter>SFML\examples\joystick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\opengl\OpenGL.cpp">
+      <Filter>SFML\examples\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\shader\Shader.cpp">
+      <Filter>SFML\examples\shader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\sockets\Sockets.cpp">
+      <Filter>SFML\examples\sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\sockets\TCP.cpp">
+      <Filter>SFML\examples\sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\sockets\UDP.cpp">
+      <Filter>SFML\examples\sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\sound\Sound.cpp">
+      <Filter>SFML\examples\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\sound_capture\SoundCapture.cpp">
+      <Filter>SFML\examples\sound_capture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\tennis\Tennis.cpp">
+      <Filter>SFML\examples\tennis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\voip\Client.cpp">
+      <Filter>SFML\examples\voip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\voip\Server.cpp">
+      <Filter>SFML\examples\voip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\voip\VoIP.cpp">
+      <Filter>SFML\examples\voip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\vulkan\Vulkan.cpp">
+      <Filter>SFML\examples\vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\win32\Win32.cpp">
+      <Filter>SFML\examples\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SFML\examples\window\Window.cpp">
+      <Filter>SFML\examples\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\cBattleScene.cpp" />
+    <ClCompile Include="..\Source\cButton.cpp" />
+    <ClCompile Include="..\Source\cClickable.cpp" />
+    <ClCompile Include="..\Source\cEvent.cpp" />
+    <ClCompile Include="..\Source\cHPBar.cpp" />
+    <ClCompile Include="..\Source\cHoverNotifier.cpp" />
+    <ClCompile Include="..\Source\cInput.cpp" />
+    <ClCompile Include="..\Source\cLabel.cpp" />
+    <ClCompile Include="..\Source\cPokemonFactory.cpp" />
+    <ClCompile Include="..\Source\cRenderManager.cpp" />
+    <ClCompile Include="..\Source\cResourceManager.cpp" />
+    <ClCompile Include="..\Source\cScaledElement.cpp" />
+    <ClCompile Include="..\Source\cTextureRect.cpp" />
+    <ClCompile Include="..\Source\cUIRect.cpp" />
+    <ClCompile Include="..\Source\cUtil.cpp" />
+  </ItemGroup>
+</Project>
