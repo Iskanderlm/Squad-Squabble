@@ -138,5 +138,5 @@ public:
 	sTrainer m_player;
 	sTrainer m_enemy;
 
-	sMove* m_cueued_move;
+	sMove* m_cueued_move = nullptr;
 };

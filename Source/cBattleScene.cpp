@@ -302,53 +302,17 @@ void cBattleScene::useMove4 ( void* _null )
 
 void cBattleScene::chooseSquadler1 ( void* _null )
 {
-	if ( m_player.m_squadlers[ 0 ] != nullptr )
+	if ( m_player.m_squadlers[ 5 ] != nullptr )
 	{
-		if ( m_player.m_squadlers[ 0 ]->m_hp > 0 && m_player.m_squadlers[ 0 ] != m_player.m_selected_squadler )
+		if ( m_player.m_squadlers[ 5 ]->m_hp > 0 && m_player.m_squadlers[ 5 ] != m_player.m_selected_squadler )
 		{
-			selectSquadler ( m_player , 0 );
+			selectSquadler ( m_player , 5 );
 			startFlash ();
 		}
 	}
 }
 
 void cBattleScene::chooseSquadler2 ( void* _null )
-{
-	if ( m_player.m_squadlers[ 1 ] != nullptr )
-	{
-		if ( m_player.m_squadlers[ 1 ]->m_hp > 0 && m_player.m_squadlers[ 1 ] != m_player.m_selected_squadler )
-		{
-			selectSquadler ( m_player , 1 );
-			startFlash ();
-		}
-	}
-}
-
-void cBattleScene::chooseSquadler3 ( void* _null )
-{
-	if ( m_player.m_squadlers[ 2 ] != nullptr )
-	{
-		if ( m_player.m_squadlers[ 2 ]->m_hp > 0 && m_player.m_squadlers[ 2 ] != m_player.m_selected_squadler )
-		{
-			selectSquadler ( m_player , 2 );
-			startFlash ();
-		}
-	}
-}
-
-void cBattleScene::chooseSquadler4 ( void* _null )
-{
-	if ( m_player.m_squadlers[ 3 ] != nullptr )
-	{
-		if ( m_player.m_squadlers[ 3 ]->m_hp > 0 && m_player.m_squadlers[ 3 ] != m_player.m_selected_squadler )
-		{
-			selectSquadler ( m_player , 3 );
-			startFlash ();
-		}
-	}
-}
-
-void cBattleScene::chooseSquadler5 ( void* _null )
 {
 	if ( m_player.m_squadlers[ 4 ] != nullptr )
 	{
@@ -360,13 +324,49 @@ void cBattleScene::chooseSquadler5 ( void* _null )
 	}
 }
 
+void cBattleScene::chooseSquadler3 ( void* _null )
+{
+	if ( m_player.m_squadlers[ 3 ] != nullptr )
+	{
+		if ( m_player.m_squadlers[ 3 ]->m_hp > 0 && m_player.m_squadlers[ 3 ] != m_player.m_selected_squadler )
+		{
+			selectSquadler ( m_player , 3 );
+			startFlash ();
+		}
+	}
+}
+
+void cBattleScene::chooseSquadler4 ( void* _null )
+{
+	if ( m_player.m_squadlers[ 2 ] != nullptr )
+	{
+		if ( m_player.m_squadlers[ 2 ]->m_hp > 0 && m_player.m_squadlers[ 2 ] != m_player.m_selected_squadler )
+		{
+			selectSquadler ( m_player , 2 );
+			startFlash ();
+		}
+	}
+}
+
+void cBattleScene::chooseSquadler5 ( void* _null )
+{
+	if ( m_player.m_squadlers[ 1 ] != nullptr )
+	{
+		if ( m_player.m_squadlers[ 1 ]->m_hp > 0 && m_player.m_squadlers[ 1 ] != m_player.m_selected_squadler )
+		{
+			selectSquadler ( m_player , 1 );
+			startFlash ();
+		}
+	}
+}
+
 void cBattleScene::chooseSquadler6 ( void* _null )
 {
-	if ( m_player.m_squadlers[ 5 ] != nullptr )
+	if ( m_player.m_squadlers[ 0 ] != nullptr )
 	{
-		if ( m_player.m_squadlers[ 5 ]->m_hp > 0 && m_player.m_squadlers[ 5 ] != m_player.m_selected_squadler )
+		if ( m_player.m_squadlers[ 0 ]->m_hp > 0 && m_player.m_squadlers[ 0 ] != m_player.m_selected_squadler )
 		{
-			selectSquadler ( m_player , 5 );
+			selectSquadler ( m_player , 0 );
 			startFlash ();
 		}
 	}
@@ -642,7 +642,7 @@ void cBattleScene::enemyChoseMove ( void* _null )
 
 void cBattleScene::delayedUseQueuedMove ()
 {
-	if ( m_player.m_selected_squadler->m_hp > 0 )
+	if ( m_player.m_selected_squadler->m_hp > 0 && m_cueued_move )
 	{
 		cEvent* after_attack = useMove ( *m_cueued_move , *m_player.m_selected_squadler , *m_enemy.m_selected_squadler , true );
 		if ( m_enemy.m_selected_squadler->m_hp > 0 )

@@ -15,6 +15,11 @@ void cSquadlerFactory::init()
 	m_all_moves.push_back( new sMove{ sf::String( "Slash" ),40,sMove::ATTACK } );
 	m_all_moves.push_back( new sMove{ sf::String( "Goblin King" ),35,sMove::ATTACK } );
 
+	m_all_moves.push_back( new sMove{ sf::String( "Crab Rave" ),65,sMove::ATTACK } );
+	m_all_moves.push_back( new sMove{ sf::String( "Claw Attack" ),40,sMove::SPECIAL_ATTACK } );
+	m_all_moves.push_back( new sMove{ sf::String( "Side Walk" ),40,sMove::ATTACK } );
+	m_all_moves.push_back( new sMove{ sf::String( "Krusty" ),35,sMove::ATTACK } );
+
 
 	m_all_pokemon.push_back( new sSquadler );
 	m_all_pokemon.back()->m_name = sf::String( "Pitch" );
@@ -52,6 +57,24 @@ void cSquadlerFactory::init()
 	m_all_pokemon.back()->m_moves[1] = getMove( sf::String( "Romper" ) );
 	m_all_pokemon.back()->m_moves[2] = getMove( sf::String( "Slash" ) );
 	m_all_pokemon.back()->m_moves[3] = getMove( sf::String( "Goblin King" ) );
+
+	m_all_pokemon.push_back( new sSquadler );
+	m_all_pokemon.back()->m_name = sf::String( "Crab" );
+	m_all_pokemon.back()->m_back_texture_path = sf::String( "Assets/Textures/Back/Crab.png" );
+	m_all_pokemon.back()->m_front_texture_path = sf::String( "Assets/Textures/Front/Crab.png" );
+	m_all_pokemon.back()->m_level = 10;
+	m_all_pokemon.back()->m_hp = 40;
+	m_all_pokemon.back()->m_stats[sSquadler::MAX_HP] = 40;
+	m_all_pokemon.back()->m_stats[sSquadler::ATTACK] = 45;
+	m_all_pokemon.back()->m_stats[sSquadler::SPECIAL_ATTACK] = 35;
+	m_all_pokemon.back()->m_stats[sSquadler::DEFENCE] = 40;
+	m_all_pokemon.back()->m_stats[sSquadler::SPECIAL_DEFENCE] = 35;
+	m_all_pokemon.back()->m_stats[sSquadler::SPEED] = 56;
+
+	m_all_pokemon.back()->m_moves[0] = getMove( sf::String( "Crab Rave" ) );
+	m_all_pokemon.back()->m_moves[1] = getMove( sf::String( "Claw Attack" ) );
+	m_all_pokemon.back()->m_moves[2] = getMove( sf::String( "Side Walk" ) );
+	m_all_pokemon.back()->m_moves[3] = getMove( sf::String( "Krusty" ) );
 
 }
 
