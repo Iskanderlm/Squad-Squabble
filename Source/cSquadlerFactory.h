@@ -18,5 +18,5 @@ public:
 	static std::list < sSquadler* > m_all_pokemon;
 
 
-	static void setNewTeam (sTrainer& _trainer);
+	static void setNewTeam ( sTrainer& _player, sTrainer& _opponent );
 };

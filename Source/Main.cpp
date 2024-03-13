@@ -96,7 +96,7 @@ int main()
 	cInput::hookToButtonPress <cEventBinder>(&cEventBinder::redirectClickEvent, event_binder, sf::Mouse::Left);
 
 
-	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Testing");
+	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Testing", sf::Style::Fullscreen );
 
 	cScaledElement::m_last_window_size = (sf::Vector2i)window.getSize ();
 

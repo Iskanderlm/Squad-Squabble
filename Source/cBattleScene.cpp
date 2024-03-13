@@ -11,7 +11,7 @@ cBattleScene::cBattleScene ()
 	, m_player_squadler( cTextureRect ( sf::FloatRect ( 0.05f,   0.4f,  0.7f,  0.7f ), "Assets/Textures/placeholder.png", true,  cScaledElement::DOWN_LEFT  ) )
 	, m_dialogue_text ( cLabel       ( sf::FloatRect ( 0.01f,  0.95f, 0.35f,  0.1f ), "test test test testes",           false, cScaledElement::DOWN_LEFT  ) )
 	, m_run           ( cButton      ( sf::FloatRect ( 0.98f,  0.95f,  0.2f, 0.12f ), "RUN",                             false, cScaledElement::DOWN_RIGHT ) )
-	, m_squadler       ( cButton      ( sf::FloatRect ( 0.77f,  0.95f,  0.2f, 0.12f ), "POKEMON",                         false, cScaledElement::DOWN_RIGHT ) )
+	, m_squadler       ( cButton      ( sf::FloatRect ( 0.77f,  0.95f,  0.2f, 0.12f ), "SQUADLERS",                         false, cScaledElement::DOWN_RIGHT ) )
 	, m_bag           ( cButton      ( sf::FloatRect ( 0.98f,   0.8f,  0.2f, 0.12f ), "BAG",                             false, cScaledElement::DOWN_RIGHT ) )
 	, m_fight         ( cButton      ( sf::FloatRect ( 0.77f,   0.8f,  0.2f, 0.12f ), "FIGHT",                           false, cScaledElement::DOWN_RIGHT ) )
 	, m_back_button   ( cButton      ( sf::FloatRect ( 0.56f,  0.95f,  0.2f, 0.12f ), "BACK",                            false, cScaledElement::DOWN_RIGHT ) )
@@ -42,8 +42,7 @@ cBattleScene::cBattleScene ()
 	m_player_squadler_starting_pos = m_player_squadler.m_uv_rect.getPosition ();
 	m_enemy_squadler_starting_pos = m_enemy_squadler.m_uv_rect.getPosition ();
 
-	cSquadlerFactory::setNewTeam ( m_player );
-	cSquadlerFactory::setNewTeam ( m_enemy );
+	cSquadlerFactory::setNewTeam ( m_player, m_enemy );
 
 	m_move_buttons[ 0 ].m_on_press->hook< cBattleScene >( &cBattleScene::useMove1, *this );
 	m_move_buttons[ 1 ].m_on_press->hook< cBattleScene >( &cBattleScene::useMove2, *this );
@@ -539,13 +538,13 @@ void cBattleScene::updateSquadlerButtonLabels ( void* _null )
 {
 	for ( int i = 0; i < 6; i++ )
 	{
-		if ( m_player.m_squadlers[ i ] != nullptr )
+		if ( m_player.m_squadlers[ i] != nullptr )
 		{
-			m_squadler_buttons[ i ].setString ( m_player.m_squadlers[ i ]->m_name );
+			m_squadler_buttons[5 - i].setString( m_player.m_squadlers[i]->m_name );
 		}
 		else
 		{
-			m_squadler_buttons[ i ].setString ( "" );
+			m_squadler_buttons[5 - i].setString( "" );
 		}
 	}
 }
