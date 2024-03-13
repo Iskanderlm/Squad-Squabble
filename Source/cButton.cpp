@@ -1,5 +1,7 @@
 #include "cButton.h"
 
+#include "cResourceManager.h"
+
 cButton::cButton ( const sf::FloatRect& _uv_rect , const sf::String& _string , const bool& _keep_aspect , const cScaledElement::eScaleTo& _scale_flag , const sRectStyle& _default_style , const sRectStyle& _hovered_style , const sRectStyle& _pressed_style ) :
 	cUIRect ( _uv_rect , _keep_aspect , _scale_flag , _default_style ) ,
 	cClickable ( sf::IntRect () ) ,
@@ -11,6 +13,8 @@ cButton::cButton ( const sf::FloatRect& _uv_rect , const sf::String& _string , c
 	m_hovered_style(_hovered_style),
 	m_pressed_style(_pressed_style)
 {
+
+	m_press_sound = cResourceManager::referenceSound( "Assets/Sounds/Button.wav" );
 	m_on_press->hook<cButton> ( &cButton::buttonDown , *this );
 	m_on_release->hook<cButton> ( &cButton::buttonUp , *this );
 
@@ -19,6 +23,7 @@ cButton::cButton ( const sf::FloatRect& _uv_rect , const sf::String& _string , c
 
 cButton::~cButton ()
 {
+	cResourceManager::unReferenceSound( "Button.wav" );
 }
 
 void cButton::assignStyle ( const eSelectedStyle& _style , const sRectStyle& _new_style )
@@ -111,6 +116,7 @@ void cButton::buttonDown ( void* _null )
 {
 	m_curr_style = PRESSED;
 	m_is_pressed = true;
+	m_press_sound.play();
 	updateDispStyle ();
 }
 

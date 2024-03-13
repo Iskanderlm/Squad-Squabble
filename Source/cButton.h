@@ -5,6 +5,7 @@
 #include "cLabel.h"
 #include "cHoverNotifier.h"
 
+#include <SFML/Audio.hpp>
 
 class cButton : public cUIRect ,public cLabel, public cClickable
 {
@@ -53,4 +54,6 @@ protected:
 	void buttonUp ( void* _null );
 	void hovered (  );
 	void unHovered (  );
+
+	sf::Sound m_press_sound;
 };

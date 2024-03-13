@@ -33,6 +33,10 @@ cBattleScene::cBattleScene ()
 	, m_spiral ( cTextureRect ( sf::FloatRect ( 0.5f , 0.5f , 1.0f , 1.0f ), "Assets/Textures/swirl.png", true, cScaledElement::CENTER ) )
 {
 
+	m_hit_sound     = cResourceManager::referenceSound( "Assets/Sounds/Hit_1.wav" );
+	m_victory_sound = cResourceManager::referenceSound( "Assets/Sounds/Victory.wav" );
+	m_defeat_sound  = cResourceManager::referenceSound( "Assets/Sounds/Defeat.wav" );
+	m_spawn_sound   = cResourceManager::referenceSound( "Assets/Sounds/Gong.wav" );
 	cSquadlerFactory::init ();
 
 	m_enemy.m_name = ( rand () % 2 ) ? "Nicklas" : "Martin";
@@ -375,7 +379,7 @@ void cBattleScene::chooseSquadler6 ( void* _null )
 void cBattleScene::selectSquadler ( sTrainer& _trainer , const int& _squadler_index )
 {
 	bool end_player_turn = false;
-
+	m_spawn_sound.play();
 	if ( &_trainer == &m_player )
 	{
 		if ( _trainer.m_selected_squadler != nullptr )
@@ -441,7 +445,7 @@ void cBattleScene::updateHPbars ( void* _null )
 cEvent* cBattleScene::useMove ( sMove& _move , sSquadler& _user , sSquadler& _not_user , const bool& _user_is_player )
 {
 	int damage;
-
+	m_hit_sound.play();
 	switch ( _move.m_damage_type )
 	{
 	case sMove::SPECIAL_ATTACK:
@@ -743,12 +747,14 @@ void cBattleScene::delayedFailedToRun ()
 
 void cBattleScene::win ()
 {
+	m_victory_sound.play();
 	hideMainButtons ( nullptr );
 	printDialogue ( "You Have Defeated " + m_enemy.m_name +"!");
 }
 
 void cBattleScene::lose ()
 {
+	m_defeat_sound.play();
 	hideMainButtons ( nullptr );
 	hideSquadlerButtons ( nullptr );
 	showHPBar1 ( nullptr );
@@ -791,5 +797,8 @@ void cBattleScene::init ( sf::RenderWindow& _window )
 
 void cBattleScene::unInit ()
 {
-
+	cResourceManager::unReferenceSound( "Assets/Sounds/Hit_1.wav"   );
+	cResourceManager::unReferenceSound( "Assets/Sounds/Victory.wav" );
+	cResourceManager::unReferenceSound( "Assets/Sounds/Defeat.wav"  );
+	cResourceManager::unReferenceSound( "Assets/Sounds/Gong.wav"    );
 }

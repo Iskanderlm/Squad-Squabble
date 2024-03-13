@@ -2,6 +2,7 @@
 
 std::list<cResourceManager::sFontInstance*> cResourceManager::m_font_instances;
 std::list<cResourceManager::sTextureInstance*> cResourceManager::m_texture_instances;
+std::list<cResourceManager::sSoundInstance*> cResourceManager::m_sound_instances;
 
 sf::Font* cResourceManager::referenceFont ( const sf::String& _path )
 {
@@ -62,6 +63,53 @@ void cResourceManager::unReferenceTexture ( const sf::String& _path )
 	}
 }
 
+sf::Sound cResourceManager::referenceSound(const sf::String & _path)
+{
+	std::list<cResourceManager::sSoundInstance*>::iterator itr = findSoundInstance ( _path );
+
+	if ( itr != m_sound_instances.end () )
+	{
+		( *itr )->m_references++;
+		sf::Sound sound;
+		sound.setBuffer( ( *itr )->m_sound );
+		return sound;
+	}
+
+	sSoundInstance* s_instance = new sSoundInstance ();
+
+
+	s_instance->m_sound = sf::SoundBuffer ();
+	if ( !s_instance->m_sound.loadFromFile ( _path ) )
+	{
+		//TODO ERROR STUFF ////////////////////////////////////////////////////////////////////////////////////////////
+		delete s_instance;
+		return sf::Sound{};
+	}
+	s_instance->m_references = 1;
+	s_instance->m_path = _path;
+	m_sound_instances.push_back ( s_instance );
+	sf::Sound sound;
+	sound.setBuffer( s_instance->m_sound );
+	return sound;
+}
+
+void cResourceManager::unReferenceSound(const sf::String & _path)
+{
+	std::list<sSoundInstance*>::iterator itr = findSoundInstance ( _path );
+
+	if ( itr != m_sound_instances.end () )
+	{
+		sSoundInstance* s_ptr = *itr;
+		s_ptr->m_references--;
+		if ( s_ptr->m_references == 0 )
+		{
+			m_sound_instances.remove ( s_ptr );
+			delete s_ptr;
+		}
+		return;
+	}
+}
+
 sf::Texture* cResourceManager::referenceTexture ( const sf::String& _path )
 {
 	std::list<cResourceManager::sTextureInstance*>::iterator itr = findTextureInstance ( _path );
@@ -116,10 +164,25 @@ std::list<cResourceManager::sTextureInstance*>::iterator cResourceManager::findT
 	return itr;
 }
 
+std::list<cResourceManager::sSoundInstance*>::iterator cResourceManager::findSoundInstance(const sf::String & _path)
+{
+	std::list<cResourceManager::sSoundInstance*>::iterator itr = m_sound_instances.begin ();
+	while ( itr != m_sound_instances.end () )
+	{
+		if ( ( *itr )->m_path == _path )
+		{
+			return itr;
+		}
+		++itr;
+	}
+	return itr;
+}
+
 void cResourceManager::init ()
 {
 	m_font_instances    = std::list< sFontInstance*    >();
 	m_texture_instances = std::list< sTextureInstance* >();
+	m_sound_instances   = std::list< sSoundInstance* >();
 }
 
 void cResourceManager::unInit ()
@@ -133,5 +196,11 @@ void cResourceManager::unInit ()
 	{
 		delete m_texture_instances.back ();
 		m_texture_instances.pop_back ();
+	}
+
+	while ( m_sound_instances.size () > 0 )
+	{
+		delete m_sound_instances.back ();
+		m_sound_instances.pop_back ();
 	}
 }

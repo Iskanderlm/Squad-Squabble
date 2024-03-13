@@ -138,5 +138,11 @@ public:
 	sTrainer m_player;
 	sTrainer m_enemy;
 
+
+
+	sf::Sound m_hit_sound;
+	sf::Sound m_victory_sound;
+	sf::Sound m_defeat_sound;
+	sf::Sound m_spawn_sound;
 	sMove* m_cueued_move = nullptr;
 };
